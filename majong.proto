@@ -1,0 +1,24 @@
+//group : 1 cmd : 1
+message req_login
+{
+    required string open_id = 1;
+    required string token = 2;
+}
+
+message rsp_login
+{
+    required sint32 status = 1;    // status 0 : 登录成功  < 0 : 登录失败
+    optional int32 coins = 2;
+    optional int32 gems = 3;
+}
+
+//group : 1 cmd : 2
+message req_pub
+{
+}
+
+message rsp_pub
+{
+    required sint32 status = 1;
+    optional string pub = 2;
+}
