@@ -22,3 +22,20 @@ message rsp_pub
     required sint32 status = 1;
     optional string pub = 2;
 }
+
+// group : 2 cmd : 1
+message req_create_room
+{
+    required int32 round = 1;   //局数
+    required int32 pay = 2;    // 1 : 房主支付 2 : aa支付
+    required int32 banker = 3;  //庄家模式  1: 抢庄 2: 轮庄 3: 随机庄 4: 固定庄
+    required int32 special = 4;  //特殊牌型 1 : 开 2 : 关
+    required int32 type = 5;    //1: 暗牌 2: 明牌
+}
+
+message rsp_create_room
+{
+    require sint32 status = 1;    // <0 建房失败
+    optional int32 room_id = 2;
+    optional int32 cois = 3; //返回剩余金币
+}
