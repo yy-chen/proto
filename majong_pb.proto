@@ -24,6 +24,8 @@ message req_login
 {
     required string open_id = 1;
     required string token = 2;
+    optional string name = 3;
+    optional string logo = 4;
 }
 
 message rsp_login
@@ -71,7 +73,7 @@ message rsp_join
 {
     required sint32 status = 1;
     repeated pb_player players = 2;
-    required pb_room_info room_info = 3;
+    optional pb_room_info room_info = 3;
 }
 // group : 2 cmd : 3 广播新玩家加入
 message rsp_new_player
