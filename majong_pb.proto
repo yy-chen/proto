@@ -90,12 +90,12 @@ message rsp_leave
 {
     required sint32 status = 1;
 }
-// group : 2 cmd : 4 广播用户离开
+// group : 2 cmd : 5 广播用户离开
 message rsp_player_leave
 {
     required int32 uid = 1;
 }
-//group : 2 cmd : 5 玩家准备
+//group : 2 cmd : 6 玩家准备
 message req_ready
 {
     required int32 type = 1;  //type 1 : 准备 2 : 取消
@@ -105,13 +105,13 @@ message rsp_ready
 {
     required sint32 status = 1;
 }
-//group : 2 cmd : 6 广播玩家准备
+//group : 2 cmd : 7 广播玩家准备
 message rsp_player_ready
 {
     required int32 uid = 1;
     required int32 type = 2;
 }
-//group : 2 cmd : 7
+//group : 2 cmd : 8
 message req_start
 {
 }
@@ -120,12 +120,12 @@ message rsp_start
 {
     required sint32 status = 1;
 }
-//group : 2 cmd : 8
+//group : 2 cmd : 9
 message rsp_game_start
 {
     optional int32 uid = 1; //如果不是抢庄则广播当前回合庄家id
 }
-//group : 2 cmd : 9      ***************************待补充
+//group : 2 cmd : 10      ***************************待补充
 message req_zhuang
 {
 
@@ -133,16 +133,16 @@ message req_zhuang
 message rsp_zhuang
 {
 }
-//group : 2 cmd : 10
+//group : 2 cmd : 11
 message rsp_player_zhuang
 {
 }
-//group : 2 cmd : 11  抢庄结束，开始选倍数
+//group : 2 cmd : 12  抢庄结束，开始选倍数
 message rsp_zhuang_end
 {
     required int32 uid = 1; //庄家uid
 }
-//group : 2 cmd : 12  选则倍数
+//group : 2 cmd : 13  选则倍数
 message req_score
 {
     required int32 score = 1;
@@ -151,13 +151,13 @@ message rsp_score
 {
     required int32 status = 1;
 }
-//group : 2 cmd : 13
+//group : 2 cmd : 14
 message rsp_player_score
 {
     required int32 uid = 1;
     required int32 score = 2;
 }
-//group : 2 cmd : 14  发牌，同时返回结果
+//group : 2 cmd : 15  发牌，同时返回结果
 message rsp_result
 {
 }
