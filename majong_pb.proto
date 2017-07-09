@@ -22,10 +22,7 @@ message pb_room_info
 //group : 1 cmd : 1
 message req_login
 {
-    required string open_id = 1;
-    required string token = 2;
-    optional string name = 3;
-    optional string logo = 4;
+    optional string code = 1;
 }
 
 message rsp_login
@@ -125,24 +122,25 @@ message rsp_game_start
 {
     optional int32 uid = 1; //如果不是抢庄则广播当前回合庄家id
 }
-//group : 2 cmd : 10      ***************************待补充
+//group : 2 cmd : 10     抢庄玩家发送此协议 
 message req_zhuang
 {
-
 }
 message rsp_zhuang
 {
+    required sint32 status = 1;
 }
-//group : 2 cmd : 11
+//group : 2 cmd : 11   广播抢庄玩家uid
 message rsp_player_zhuang
 {
+    required int32 uid = 1;
 }
 //group : 2 cmd : 12  抢庄结束，开始选倍数
 message rsp_zhuang_end
 {
     required int32 uid = 1; //庄家uid
 }
-//group : 2 cmd : 13  选则倍数
+//group : 2 cmd : 13  选则倍数   金币场中倍数*5不能超过身上金币数
 message req_score
 {
     required int32 score = 1;
