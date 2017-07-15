@@ -164,3 +164,25 @@ message rsp_player_score
 message rsp_result
 {
 }
+
+//group : 2 cmd : 16  聊天
+message req_chat
+{
+    optional string msg = 1;
+    optional string voice = 2;
+}
+message rsp_chat
+{
+    required int32 status = 1;
+}
+//group : 2 cmd : 17  通知聊天
+message rsp_player_chat
+{
+    optional string msg = 1;
+    optional string voice = 2;
+    required int32 uid = 3;
+}
+
+
+
+
