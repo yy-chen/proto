@@ -137,6 +137,7 @@ message rsp_game_start
 //group : 2 cmd : 10     抢庄玩家发送此协议 
 message req_zhuang
 {
+    required sint32 base = 1;   //抢庄基数（倍数）
 }
 message rsp_zhuang
 {
@@ -146,11 +147,13 @@ message rsp_zhuang
 message rsp_player_zhuang
 {
     required int32 uid = 1;
+    required sint32 base = 2;
 }
 //group : 2 cmd : 12  抢庄结束，开始选倍数
 message rsp_zhuang_end
 {
     required int32 uid = 1; //庄家uid
+    required sint32 base = 2;
 }
 //group : 2 cmd : 13  选则倍数   金币场中倍数*5不能超过身上金币数
 message req_score
@@ -170,7 +173,7 @@ message rsp_player_score
 //group : 2 cmd : 15  发牌，同时返回结果
 message rsp_result
 {
-    required pb_player players = 1;
+    repeated pb_player players = 1;
 }
 
 //group : 2 cmd : 16  聊天
