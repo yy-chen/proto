@@ -5,7 +5,7 @@ message pb_player
     optional int32 coins = 3;
     optional string logo = 4;
     optional int32 owner = 5;    //如果是房主此项为1
-    required int32 index = 6;
+    optional int32 index = 6;
     repeated pb_unit pai = 7;
     optional int32 delta = 8;     //返回得分变化值
 }
@@ -194,4 +194,32 @@ message rsp_player_chat
     optional string msg = 1;
     optional string url = 2;
     required int32 uid = 3;
+}
+
+message pb_task
+{
+    required int32 id = 1;  //id
+    required int32 num = 2;  //已完成几次
+    required int32 recive = 3;  //是否已领取 0 : 未领
+}
+
+// group : 3 cmd : 1
+message req_task
+{
+}
+
+message rsp_task
+{
+    repeated pb_task tasks = 1;
+}
+
+//group : 3 cmd : 2   领奖
+message req_task_claim
+{
+    required int32 id = 1;
+}
+
+message rsp_task_claim
+{
+    required int32 status = 1;
 }
