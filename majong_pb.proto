@@ -170,6 +170,7 @@ message rsp_player_score
 {
     required int32 uid = 1;
     required int32 score = 2;
+    required int32 delta = 3;
 }
 //group : 2 cmd : 15  发牌，同时返回结果
 message rsp_result
