@@ -7,6 +7,7 @@ message pb_player
     optional int32 owner = 5;    //如果是房主此项为1
     required int32 index = 6;
     repeated pb_unit pai = 7;
+    optional int32 delta = 8;     //返回得分变化值
 }
 
 message pb_room_info
