@@ -223,3 +223,26 @@ message rsp_task_claim
 {
     required int32 status = 1;
 }
+
+// group : 4 cmd : 1
+message req_content
+{
+    required string weixin = 1;
+    required string text = 2;
+}
+
+message rsp_content
+{
+    required int32 status = 1;
+}
+
+// group : 5 cmd : 1
+message req_pay
+{
+    required int32 rmb = 1;
+}
+message rsp_pay
+{
+    required int32 status = 1;
+    optional int32 coins = 2;
+}
