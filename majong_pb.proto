@@ -196,6 +196,22 @@ message rsp_player_chat
     required int32 uid = 3;
 }
 
+//group : 2 cmd : 18  亮牌
+message req_show
+{
+}
+
+message rsp_show
+{
+    required int32 status = 1;
+}
+
+//group : 2 cmd : 19
+message notify_show
+{
+    required int32 uid = 1;
+}
+
 message pb_task
 {
     required int32 id = 1;  //id
