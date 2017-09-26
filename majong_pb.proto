@@ -261,4 +261,22 @@ message rsp_pay
 {
     required int32 status = 1;
     optional int32 coins = 2;
+    optional string nonce_str = 3;
+    optional string sign = 4;
+    optional string err_code_des = 5;
+    optional string trade_type = 6;
+    optional string prepay_id = 7;
+    optional string order_id = 8;
+}
+
+message res_check_pay
+{
+    required string order_id = 1;
+}
+
+message rsp_check_pay
+{
+    required int32 status = 1; // 0 : 订单校验通过
+    required string order_id = 2;
+    optional int32 coins = 3;
 }
