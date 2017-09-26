@@ -367,5 +367,5 @@ message req_get_data
 
 message rsp_get_data
 {
-    required string data = ;1
+    required string data = 1;
 }
