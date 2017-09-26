@@ -27,6 +27,16 @@ message pb_unit
     required int32 num = 2;    // 1-13
 }
 
+//group : 0  cmd : 0
+message req_heart
+{
+}
+
+message rsp_heart
+{
+    required int32 time = 1;
+}
+
 //group : 1 cmd : 1
 message req_login
 {
@@ -212,11 +222,31 @@ message notify_show
     required int32 uid = 1;
 }
 
+//group : 2 cmd : 20
+message notify_all_show
+{
+}
+
 message pb_task
 {
     required int32 id = 1;  //id
     required int32 num = 2;  //已完成几次
     required int32 recive = 3;  //是否已领取 0 : 未领
+}
+
+//group : 2 cmd : 21
+message req_dismiss
+{
+}
+
+message rsp_dismiss
+{
+    required int32 status = 1;
+}
+
+//group : 2 cmd : 22
+message notify_dismiss
+{
 }
 
 // group : 3 cmd : 1
@@ -269,6 +299,7 @@ message rsp_pay
     optional string order_id = 8;
 }
 
+//group : 5 cmd : 2
 message res_check_pay
 {
     required string order_id = 1;
@@ -279,4 +310,62 @@ message rsp_check_pay
     required int32 status = 1; // 0 : 订单校验通过
     required string order_id = 2;
     optional int32 coins = 3;
+}
+
+//group : 5 cmd : 3
+message req_buy_gem
+{
+    required int32 coins = 1;
+}
+
+message rsp_buy_gem
+{
+    required int32 status = 1;
+    optional int32 gems = 2;
+}
+
+message pb_rank_player
+{
+    required string name = 1;
+    required string logo = 2;
+    required int32 num = 3;
+}
+
+//group : 6 cmd : 1
+message req_coins_rank
+{
+}
+
+message rsp_coins_rank
+{
+    repeated pb_rank_player players = 1;
+}
+//group : 6 cmd : 2
+message req_gem_rank
+{
+}
+
+message rsp_gem_rank
+{
+    repeated pb_rank_player players = 1;
+}
+
+//group : 100 cmd : 1
+message req_save_data
+{
+    required string data = 1;
+}
+
+message rsp_save_data
+{
+    required int32 status = 1;
+}
+//group : 100 cmd : 2
+message req_get_data
+{
+}
+
+message rsp_get_data
+{
+    required string data = ;1
 }
