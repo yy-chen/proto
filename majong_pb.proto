@@ -192,7 +192,7 @@ message rsp_result
 message req_chat
 {
     optional string msg = 1;
-    optional string voice = 2;
+    repeated bytes voice = 2;
 }
 message rsp_chat
 {
@@ -227,13 +227,6 @@ message notify_all_show
 {
 }
 
-message pb_task
-{
-    required int32 id = 1;  //id
-    required int32 num = 2;  //已完成几次
-    required int32 recive = 3;  //是否已领取 0 : 未领
-}
-
 //group : 2 cmd : 21
 message req_dismiss
 {
@@ -247,6 +240,14 @@ message rsp_dismiss
 //group : 2 cmd : 22
 message notify_dismiss
 {
+}
+
+
+message pb_task
+{
+    required int32 id = 1;  //id
+    required int32 num = 2;  //已完成几次
+    required int32 recive = 3;  //是否已领取 0 : 未领
 }
 
 // group : 3 cmd : 1
