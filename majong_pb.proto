@@ -144,6 +144,7 @@ message rsp_start
 message rsp_game_start
 {
     optional int32 uid = 1; //如果不是抢庄则广播当前回合庄家id
+    required int32 round = 2; //广播当前局数
 }
 //group : 2 cmd : 10     抢庄玩家发送此协议 
 message req_zhuang
